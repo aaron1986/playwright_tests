@@ -1,19 +1,24 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('has title and heading', async ({ page }) => {
+  await page.goto('https://analyticsexample.com/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  //check title is My eportfolio
+  await expect(page).toHaveTitle("My eportfolio");
+
+  //check all buttons are working
+  const buttons = page.locator('span.btn-info', { 
+    hasText: 'More Info' 
+  });
+  const count = await buttons.count();
+  
+  for (let i = 0; i < count; i++) {
+    await buttons.nth(i).click();
+  }
+  
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+// test("", async({page}) => {
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
+// })
