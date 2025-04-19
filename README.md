@@ -4,7 +4,7 @@ STEPS TO CREATE PLAYWRIGHT TESTS.</br>
 (2) Install playwright in example_folder by using the 'npm init playwright' command </br>
 (3) Change the package.json file to read </br></br>
 
-"scripts": {
-    "test": "playwright test --headed"
+"scripts": { </br>
+    "test": "playwright test --headed" </br>
 },
 
